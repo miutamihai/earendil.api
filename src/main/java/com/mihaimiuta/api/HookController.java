@@ -28,13 +28,17 @@ public class HookController {
     }
 
     @PostMapping(value = "/trigger")
-    public ResponseEntity<String> trigger(@RequestBody WebHook payload) {
-        try {
-            cloneRepo(payload);
-            runEarendil(payload);
-        } catch (Exception exception) {
-            return ResponseEntity.internalServerError().body(exception.getMessage());
-        }
-        return ResponseEntity.ok(payload.getPullRequest().getUser().getLogin());
+    public ResponseEntity<String> trigger(@RequestBody String payload) {
+//        try {
+//            cloneRepo(payload);
+//            runEarendil(payload);
+//        } catch (Exception exception) {
+//            return ResponseEntity.internalServerError().body(exception.getMessage());
+//        }
+//        return ResponseEntity.ok(payload.getPullRequest().getUser().getLogin());
+
+        System.out.println(payload);
+
+        return ResponseEntity.ok(payload);
     }
 }
