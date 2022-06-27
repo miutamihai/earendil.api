@@ -19,5 +19,10 @@ services:
       - 8080:8080
     environment:
       PORT: 8080
+      DB_HOST: database
+      DB_PORT: 5432
+      DB_NAME: earendil
+      DB_USER: earendil
+      DB_PASSWORD: earendil
     depends_on:
       - database

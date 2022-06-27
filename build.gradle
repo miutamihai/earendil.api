@@ -14,12 +14,8 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation(platform("com.netflix.graphql.dgs:graphql-dgs-platform-dependencies:latest.release"))
     implementation "com.netflix.graphql.dgs:graphql-dgs-spring-boot-starter"
-    implementation 'org.javalite:activejdbc:2.3'
+    implementation 'org.postgresql:postgresql:42.3.6'
 }
 
-tasks.named('test') {
-    useJUnitPlatform()
-}

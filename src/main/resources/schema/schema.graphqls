@@ -1,8 +1,12 @@
 type Query {
-    shows(titleFilter: String): [Show]
+    repositories: [Repository]
 }
 
-type Show {
-    title: String
-    releaseYear: Int
+type Mutation {
+    addRepository(name: String, token: String): Repository
+}
+
+type Repository {
+    id: ID
+    name: String
 }
