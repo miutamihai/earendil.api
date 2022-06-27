@@ -17,6 +17,8 @@ RUN apt update -y
 RUN apt install -y erlang
 RUN apt install -y elixir
 
+RUN erdpy deps install nodejs
+
 CMD gunicorn --bind 0.0.0.0:$PORT wsgi
 
 COPY target/*.jar app.jar
