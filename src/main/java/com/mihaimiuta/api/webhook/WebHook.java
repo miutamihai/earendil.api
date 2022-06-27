@@ -5,9 +5,12 @@ public class WebHook {
 
     private final PullRequest pullRequest;
 
-    public WebHook(String _action, PullRequest _pullRequest) {
+    private final Repository repository;
+
+    public WebHook(String _action, PullRequest _pullRequest, Repository _repository) {
         this.action = _action;
         this.pullRequest = _pullRequest;
+        this.repository = _repository;
     }
 
     public String getAction() {
@@ -16,5 +19,9 @@ public class WebHook {
 
     public PullRequest getPullRequest() {
         return pullRequest;
+    }
+
+    public Repository getRepository() {
+        return repository;
     }
 }

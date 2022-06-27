@@ -7,3 +7,4 @@ MIX_ENV=prod mix release
 mv ./_build/prod/rel/bakeware/earendil ../earendil
 cd ..
 rm -rf cli
+chmod 777 ./earendil
