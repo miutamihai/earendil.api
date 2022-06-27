@@ -9,7 +9,7 @@ public class PullRequest {
 
     private final User user;
 
-    PullRequest(String _url, String _title, Head _head, User _user) {
+    public PullRequest(String _url, String _title, Head _head, User _user) {
         this.url = _url;
         this.title = _title;
         this.head = _head;

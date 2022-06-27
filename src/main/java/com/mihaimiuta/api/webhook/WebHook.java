@@ -5,7 +5,7 @@ public class WebHook {
 
     private final PullRequest pullRequest;
 
-    WebHook(String _action, PullRequest _pullRequest) {
+    public WebHook(String _action, PullRequest _pullRequest) {
         this.action = _action;
         this.pullRequest = _pullRequest;
     }

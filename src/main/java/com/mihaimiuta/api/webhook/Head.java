@@ -4,7 +4,7 @@ public class Head {
     private final String ref;
     private final String sha;
 
-    Head(String _ref, String _sha) {
+    public Head(String _ref, String _sha) {
         this.ref = _ref;
         this.sha = _sha;
     }

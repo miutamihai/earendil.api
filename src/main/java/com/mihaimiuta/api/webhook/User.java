@@ -5,7 +5,7 @@ public class User {
 
     private final String url;
 
-    User(String _login, String _url) {
+    public User(String _login, String _url) {
         this.login = _login;
         this.url = _url;
     }
