@@ -2,6 +2,8 @@ name: Build & Push to Heroku Docker Registry
 on:
   push:
     branches: [ main ]
+  repository_dispatch:
+    types: deploy
 jobs:
   build:
     runs-on: ubuntu-latest
