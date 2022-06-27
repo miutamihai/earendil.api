@@ -21,6 +21,7 @@ public class RepositoriesDatafetcher {
             while(resultSet.next()) {
                 result.add(new Repository(resultSet.getString("id"), resultSet.getString("name")));
             }
+            statement.close();
 
             return result;
 
