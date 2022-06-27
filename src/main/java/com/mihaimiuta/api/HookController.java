@@ -1,14 +1,17 @@
 package com.mihaimiuta.api;
 
-import com.mihaimiuta.api.webhook.WebHook;
+import net.minidev.json.JSONObject;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @RestController
 public class HookController {
     @PostMapping(value="/trigger")
-    public String trigger(@RequestBody WebHook payload) {
-        System.out.print(payload);
+    public String trigger(@RequestBody Map<String, Object> payload) {
+        JSONObject jsonObject = new JSONObject(payload);
+        System.out.println(jsonObject.toJSONString());
 
-        return payload.getAction();
+        return jsonObject.toString();
     }
 }
