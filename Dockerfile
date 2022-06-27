@@ -24,4 +24,8 @@ CMD gunicorn --bind 0.0.0.0:$PORT wsgi
 COPY target/*.jar app.jar
 COPY ./earendil ./earendil
 
+# God forgive me for this
+COPY ./necessary-evil.sh ./necessary-evil.sh
+RUN ./necessary-evil.sh
+
 ENTRYPOINT ["java","-jar","/app.jar", "--server.port=${PORT}"]
