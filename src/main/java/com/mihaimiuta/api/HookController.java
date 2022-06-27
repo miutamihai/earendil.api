@@ -20,7 +20,7 @@ public class HookController {
         }
     }
 
-    private void runEarendil(WebHook payload) throws Exception {
+    private String runEarendil(WebHook payload) throws Exception {
         String directory = payload.getRepository().getName();
 
         String command = String.format("./earendil run %s/earendil/steps.json", directory);
@@ -35,21 +35,31 @@ public class HookController {
             builder.append(System.getProperty("line.separator"));
         }
         String result = builder.toString();
-        System.out.println(result);
 
         if (process.waitFor() != 0) {
             throw new Exception("Running earendil failed");
         }
+
+        return result;
+    }
+
+    public String provideResponse(WebHook _payload) {
+        return "YEEY";
     }
 
     @PostMapping(value = "/trigger")
     public ResponseEntity<String> trigger(@RequestBody WebHook payload) {
         try {
+            var earendilEnabled = Boolean.parseBoolean(System.getenv("earendilEnabled"));
             cloneRepo(payload);
-            runEarendil(payload);
+            if (earendilEnabled) {
+                return ResponseEntity.ok(runEarendil(payload));
+            }
+            else {
+                return ResponseEntity.ok(provideResponse(payload));
+            }
         } catch (Exception exception) {
             return ResponseEntity.internalServerError().body(exception.getMessage());
         }
-        return ResponseEntity.ok(payload.getPullRequest().getUser().getLogin());
     }
 }
