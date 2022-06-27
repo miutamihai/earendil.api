@@ -19,7 +19,8 @@ jobs:
       - name: Build Jar File
         run: ./jar.sh
       - name: Compile Earendil Cli
-        run: ./compile-cli
+        uses: actions/setup-elixir@v1
+        run: ./compile-cli.sh
       - name: Heroku Container Registry login
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
