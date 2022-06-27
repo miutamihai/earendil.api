@@ -17,6 +17,7 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation(platform("com.netflix.graphql.dgs:graphql-dgs-platform-dependencies:latest.release"))
     implementation "com.netflix.graphql.dgs:graphql-dgs-spring-boot-starter"
+    implementation 'org.javalite:activejdbc:2.3'
 }
 
 tasks.named('test') {
