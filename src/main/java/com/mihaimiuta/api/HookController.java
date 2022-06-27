@@ -1,5 +1,6 @@
 package com.mihaimiuta.api;
 
+import com.mihaimiuta.api.database.Repositories;
 import com.mihaimiuta.api.webhook.WebHook;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -43,8 +44,13 @@ public class HookController {
         return result;
     }
 
-    public String provideResponse(WebHook _payload) {
+    public String provideResponse(WebHook payload) {
+        String repoToken = new Repositories().getToken(payload.getRepository().getFullName());
+        new Status().update(payload, repoToken, "pending");
+
+
         return "YEEY";
+
     }
 
     @PostMapping(value = "/trigger")

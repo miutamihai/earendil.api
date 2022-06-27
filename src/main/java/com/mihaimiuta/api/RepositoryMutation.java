@@ -30,7 +30,7 @@ public class RepositoryMutation {
                 var newId = resultSet.getString("id");
                 var newName = resultSet.getString("name");
                 List<Run> emptyList = List.of();
-                newValue = new Repository(newId, newName, emptyList);
+                newValue = new Repository(newId, newName, "", emptyList);
             }
 
             selectStatement.close();

@@ -7,11 +7,14 @@ public class Repository {
 
     private final String name;
 
+    private final String token;
+
     private final List<Run> runs;
 
-    public Repository(String _id, String _name, List<Run> _runs) {
+    public Repository(String _id, String _name, String _token, List<Run> _runs) {
         this.id = _id;
         this.name = _name;
+        this.token = _token;
         this.runs = _runs;
     }
 
@@ -21,6 +24,10 @@ public class Repository {
 
     public String getId() {
         return id;
+    }
+
+    public String getToken() {
+        return token;
     }
 
     public List<Run> getRuns() {
