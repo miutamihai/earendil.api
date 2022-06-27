@@ -11,7 +11,7 @@ public class ApiApplication {
         try {
             var connection = DbDriver.getInstance().connection;
             var statement = connection.createStatement();
-            statement.executeQuery("""
+            statement.execute("""
                 create table if not exists repositories(
                     id serial primary key,
                     name varchar(255) not null unique ,
