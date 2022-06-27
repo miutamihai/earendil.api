@@ -16,10 +16,11 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 18
+      - name: Setup Elixir
+        uses: actions/setup-elixir@v1
       - name: Build Jar File
         run: ./jar.sh
       - name: Compile Earendil Cli
-        uses: actions/setup-elixir@v1
         run: ./compile-cli.sh
       - name: Heroku Container Registry login
         env:
