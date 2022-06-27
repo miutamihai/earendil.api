@@ -13,5 +13,7 @@ RUN useradd --create-home earendil
 USER earendil
 
 COPY target/*.jar app.jar
+COPY ./earendil ./earendil
+ENV PATH="~/earendil:${PATH}"
 
 ENTRYPOINT ["java","-jar","/app.jar", "--server.port=${PORT}"]
