@@ -4,4 +4,4 @@ CMD gunicorn --bind 0.0.0.0:$PORT wsgi
 
 COPY target/*.jar app.jar
 
-ENTRYPOINT ["java","-jar","/app.jar"]
+ENTRYPOINT ["java","-jar","/app.jar", "--server.port=${PORT}"]
