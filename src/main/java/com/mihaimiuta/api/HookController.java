@@ -20,7 +20,7 @@ public class HookController {
     private void runEarendil(WebHook payload) throws Exception {
         String directory = payload.getRepository().getName();
 
-        String command = String.format("earendil run %s/earendil/steps.json", directory);
+        String command = String.format("./earendil run %s/earendil/steps.json", directory);
         Process process = Runtime.getRuntime().exec(command);
         if (process.waitFor() != 0) {
             throw new Exception("Running earendil failed");
