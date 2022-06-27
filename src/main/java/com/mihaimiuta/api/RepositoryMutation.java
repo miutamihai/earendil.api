@@ -1,12 +1,11 @@
 package com.mihaimiuta.api;
 
 import com.netflix.graphql.dgs.DgsComponent;
-import com.netflix.graphql.dgs.DgsData;
 import com.netflix.graphql.dgs.DgsMutation;
 import com.netflix.graphql.dgs.InputArgument;
-import graphql.schema.DataFetchingEnvironment;
 
 import java.sql.SQLException;
+import java.util.List;
 
 @DgsComponent
 public class RepositoryMutation {
@@ -28,7 +27,10 @@ public class RepositoryMutation {
             var resultSet = selectStatement.executeQuery();
 
             while (resultSet.next()) {
-                newValue = new Repository(resultSet.getString("id"), resultSet.getString("name"));
+                var newId = resultSet.getString("id");
+                var newName = resultSet.getString("name");
+                List<Run> emptyList = List.of();
+                newValue = new Repository(newId, newName, emptyList);
             }
 
             selectStatement.close();

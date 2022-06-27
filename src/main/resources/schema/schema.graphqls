@@ -9,4 +9,18 @@ type Mutation {
 type Repository {
     id: ID
     name: String
+    runs: [Run]
+}
+
+type Run {
+    id: ID
+    creationDate: String
+    status: Status
+    initiator: String
+}
+
+enum Status {
+    SUCCESS,
+    FAILURE,
+    PENDING
 }

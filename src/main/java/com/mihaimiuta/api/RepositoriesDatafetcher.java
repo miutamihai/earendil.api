@@ -19,8 +19,12 @@ public class RepositoriesDatafetcher {
             var resultSet = statement.executeQuery("select * from repositories");
 
             while(resultSet.next()) {
-                result.add(new Repository(resultSet.getString("id"), resultSet.getString("name")));
+                var id = resultSet.getString("id");
+                var name = resultSet.getString("name");
+                var runs = new RunsDatafetcher().get(id);
+                result.add(new Repository(id, name, runs));
             }
+
             statement.close();
 
             return result;
