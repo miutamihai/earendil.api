@@ -12,5 +12,7 @@ CMD gunicorn --bind 0.0.0.0:$PORT wsgi
 COPY target/*.jar app.jar
 COPY ./earendil ./earendil
 ENV PATH="~/root:${PATH}"
+ADD ./.profile.d /app/.profile.d
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 ENTRYPOINT ["java","-jar","/app.jar", "--server.port=${PORT}"]
