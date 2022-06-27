@@ -18,6 +18,9 @@ jobs:
           java-version: 18
       - name: Setup Elixir
         uses: actions/setup-elixir@v1
+        with:
+          otp-version: '24'
+          elixir-version: '1.13.4'
       - name: Build Jar File
         run: ./jar.sh
       - name: Compile Earendil Cli
