@@ -1,5 +1,8 @@
 # The Earendil Api
-CI service for Elrond Smart Contracts
+CI service for Elrond Smart Contracts. 
+
+## How to use
+Add a GitHub webhook to your repository, containing repository permissions, with the url https://earendil-api.herokuapp.com/trigger .
 
 ### Used ports
 * `8080` - configurable from the `docker-compose.yml` file.
